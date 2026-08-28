@@ -1,0 +1,14 @@
+# Node / frontend
+node_modules/
+dist/
+frontend/dist/
+
+# .NET / backend
+bin/
+obj/
+*.user
+
+# Misc
+.DS_Store
+.vscode/
+*.log
