@@ -1,6 +1,9 @@
+//this is how the frontend talks to the backend 
+
+
 import type { Shot } from "./types";
 
-// Points at the ASP.NET Core Web API (see /backend). Update if you change the port.
+// Points at the ASP.NET Core Web API (see /backend). I'll need to update if I change the port. 
 const API_BASE_URL = "https://localhost:5001/api";
 
 export async function getShots(): Promise<Shot[]> {
