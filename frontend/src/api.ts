@@ -4,7 +4,7 @@
 import type { Shot } from "./types";
 
 // Points at the ASP.NET Core Web API (see /backend). I'll need to update if I change the port. 
-const API_BASE_URL = "https://localhost:5000/api";
+const API_BASE_URL = "http://localhost:5000/api";
 
 export async function getShots(): Promise<Shot[]> {
   const res = await fetch(`${API_BASE_URL}/shots`);
