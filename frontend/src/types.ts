@@ -4,7 +4,7 @@ export type ShotStatus =
   | "Shooting"
   | "Editing"
   | "SoundDesign"
-  | "Done";
+  | "Done"; //a ShotStatus can only be one of these things 
 
 export interface Shot {
   id: number;
@@ -16,4 +16,4 @@ export interface Shot {
   soundNotes?: string;
   frameCount?: number;
   updatedAt: string;
-}
+} //a shot object has these properties.
