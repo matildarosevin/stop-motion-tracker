@@ -5,7 +5,7 @@ animator, and sound design notes per shot. Built as a personal project to get ha
 with React/TypeScript + ASP.NET Core + SQL Server, inspired by an interest in both
 animation production and sound design.
 
-**Status: 🚧 In progress.** Core CRUD scaffold is in place; see Roadmap below.
+**Status: In progress.** Core CRUD scaffold is in place; see Roadmap below.
 
 ## Stack
 
@@ -62,5 +62,4 @@ App runs at `http://localhost:5173`.
 ## Why this project
 
 I wanted a portfolio project that combines the React/TypeScript + ASP.NET/.NET stack
-with something I'm genuinely interested in — stop-motion animation and sound design —
-rather than a generic todo-list clone.
+with something I'm interested in — stop-motion animation and sound design.
