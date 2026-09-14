@@ -31,6 +31,9 @@ cd backend/StopMotionTracker.Api
 dotnet restore
 dotnet ef migrations add InitialCreate   # first time only
 dotnet ef database update
+
+docker run -e "ACCEPT_EULA=Y" -e 'SA_PASSWORD=YourPassword123!' -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
+
 dotnet run
 ```
 
