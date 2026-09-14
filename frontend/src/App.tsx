@@ -10,12 +10,12 @@ const STATUSES: ShotStatus[] = [
   "Editing",
   "SoundDesign",
   "Done",
-];
+]; 
 
 function App() {
-  const [shots, setShots] = useState<Shot[]>([]);
+  const [shots, setShots] = useState<Shot[]>([]); //React Hook, adds "memory" to a component. updating it refreshes the screen. 
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null); //these variables tell us - what should be on the screen right now 
   const [form, setForm] = useState({
     sceneNumber: "",
     shotNumber: "",
