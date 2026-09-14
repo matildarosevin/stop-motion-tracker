@@ -23,12 +23,12 @@ function App() {
     soundNotes: "",
   });
 
-  useEffect(() => {
+  useEffect(() => { //useEffect is a React Hook, When this component first loads, run this function. 
     getShots()
       .then(setShots)
       .catch(() => setError("Couldn't reach the API yet — start the backend (see README)."))
       .finally(() => setLoading(false));
-  }, []);
+  }, []); //run once, when mounted .then .catch .finally are promise handlers. 
 
   async function handleAddShot(e: React.FormEvent) {
     e.preventDefault();
