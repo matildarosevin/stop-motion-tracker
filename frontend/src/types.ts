@@ -1,3 +1,8 @@
+//Union Types (TypeScript catches typos)
+//Optional fields can be null or undefined
+//Exactly matches C# Shot class
+
+
 export type ShotStatus =
   | "NotStarted"
   | "SetBuild"
@@ -12,8 +17,8 @@ export interface Shot {
   shotNumber: string;
   description: string;
   status: ShotStatus;
-  assignedAnimator?: string;
-  soundNotes?: string;
-  frameCount?: number;
-  updatedAt: string;
+  assignedAnimator?: string; //optional
+  soundNotes?: string; //optional
+  frameCount?: number; //optional
+  updatedAt: string; //ISO datetime string 
 } //a shot object has these properties.
