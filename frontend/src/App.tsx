@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import type { Shot, ShotStatus } from "./types";
-import { getShots, createShot } from "./api";
-import "./App.css";
+import { useEffect, useState } from "react"; //Hoooks for state management
+import type { Shot, ShotStatus } from "./types"; //The TypeScriot interface lives in one place
+import { getShots, createShot } from "./api"; //Keeps HTTP logic isolated
+import "./App.css"; 
 
 const STATUSES: ShotStatus[] = [
   "NotStarted",
@@ -24,24 +24,24 @@ function App() {
   });
 
   useEffect(() => { //useEffect is a React Hook, When this component first loads, run this function. 
-    getShots()
-      .then(setShots)
+    getShots() //calls async function from api.ts
+      .then(setShots) 
       .catch(() => setError("Couldn't reach the API yet — start the backend (see README)."))
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(false)); 
   }, []); //run once, when mounted .then .catch .finally are promise handlers. 
 
   async function handleAddShot(e: React.FormEvent) {
-    e.preventDefault();
+    e.preventDefault(); //Stop page refresh 
     try {
-      const newShot = await createShot({ ...form, status: "NotStarted" });
-      setShots((prev) => [...prev, newShot]);
+      const newShot = await createShot({ ...form, status: "NotStarted" }); //...form spread operator, copy all form values. All new shots start as default not started
+      setShots((prev) => [...prev, newShot]); //send to backend API
       setForm({ sceneNumber: "", shotNumber: "", description: "", soundNotes: "" });
     } catch {
-      setError("Couldn't save that shot — is the API running?");
+      setError("Couldn't save that shot — is the API running?"); //handle if backend fails 
     }
   }
 
-  return (
+  return ( //rendering the table 
     <div className="app">
       <header>
         <h1>Stop-Motion Production Tracker</h1>
@@ -96,15 +96,15 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {shots.map((shot) => (
-                <tr key={shot.id}>
+              {shots.map((shot) => ( //loop through shots and create row for each, key tells react which rows have changed
+                <tr key={shot.id}> {/*Tells React which rows have changed*/}
                   <td>{shot.sceneNumber}</td>
                   <td>{shot.shotNumber}</td>
                   <td>{shot.description}</td>
                   <td>
-                    <span className={`status status-${shot.status}`}>{shot.status}</span>
+                    <span className={`status status-${shot.status}`}>{shot.status}</span> {/*Dynamic CSS Class*/}
                   </td>
-                  <td>{shot.soundNotes ?? "—"}</td>
+                  <td>{shot.soundNotes ?? "—"}</td> {/*Assigns soundNotes as - if a null input is given*/}
                 </tr>
               ))}
             </tbody>
@@ -113,7 +113,7 @@ function App() {
       </section>
 
       <footer>
-        <p>Statuses: {STATUSES.join(" → ")}</p>
+        <p>Statuses: {STATUSES.join(" → ")}</p> 
       </footer>
     </div>
   );
