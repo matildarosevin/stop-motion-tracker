@@ -1,12 +1,16 @@
-using Microsoft.EntityFrameworkCore;
+//ASP.NET core configuration 
+
+using Microsoft.EntityFrameworkCore; //Why use Entity? Write C#, type-safe, switch databases, reads like english, less code
 using StopMotionTracker.Api.Data;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); //ASP.NET core framework, creates service container
 
+//Register services 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Register DbContext 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
