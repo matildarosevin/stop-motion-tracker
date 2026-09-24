@@ -10,13 +10,13 @@
 
 ## Why I built this
 
-I wanted a portfolio project that brought together the React/TypeScript and .NET stack with two things I genuinely care about: stop-motion animation and sound design. Rather than build another to-do app, I modelled something closer to a real production workflow, where each shot moves through a pipeline and carries its own notes.
+I wanted a portfolio project that brought together the React/TypeScript and .NET stack to be used in stop motion processes. Rather than build another to-do app, I modelled something that might be similar to a production workflow.
 
 ## What I learned
 
 - **Keeping the frontend and backend in sync.** The `Shot` model is defined once in C# and mirrored exactly as a TypeScript interface, so the compiler catches mismatches on both sides.
 - **How the pieces talk to each other.** Building the API controller, the `api.ts` fetch layer and the CORS setup showed me the full journey of a request from browser to database and back.
-- **Choosing tools for the environment.** I started with SQL Server, then switched to SQLite so the project runs on a Mac with no extra setup.
+- **Choosing tools for the environment.** I started with SQL Server, then switched to SQLite so the project runs on a Mac, as I have an M1 silicone chip, with no extra setup.
 
 ---
 
@@ -56,7 +56,7 @@ Then open `http://localhost:5173`.
 
 ## How it works
 
-Each shot is identified by its scene and shot number and moves through six production stages:
+Each shot has a scene, shot number, and progress status:
 
 ```
 NotStarted → SetBuild → Shooting → Editing → SoundDesign → Done
