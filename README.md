@@ -1,4 +1,4 @@
-# 🎬 Stop-Motion Production Tracker
+# Stop-Motion Production Tracker
 
 **What it does:** A full-stack web app for tracking every shot in a stop-motion production, from set build through to sound design.
 
